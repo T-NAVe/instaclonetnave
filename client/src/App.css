@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+
+
+a{
+  color:black !important;
+}
+.brand-logo{
+  font-family: 'Grand Hotel', cursive;
+}
+.mycard{
+  margin-top: 30px;
+}
+.auth-card{  
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin:10px auto;
+}
+.input-field input:focus {
+  border-bottom: 1px solid #64b5f6 !important;
+  box-shadow: 0 1px 0 0 #64b5f6 !important;
+}
+.gallery{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.gallery img{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.item{
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+.home-card{
+  max-width: 500px;
+  height: max-content;
+  margin: 0 auto;
+}
+.home-card img{
+  max-width: 500px;
+  border-radius: 1%;
+}
+.material-icons{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+.material-icons:hover{
+  cursor: pointer;
+  transform: scale(0.9);
+}
+.material-icons:active{
+  cursor: pointer;
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+container {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+.outer {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 150px !important; /* any size */
+  max-height: 150px !important; /* any size */
+  margin: auto;
+  background-position: center center;
+  background-clip: padding-box;
+  background-size: cover;
+  border-radius: 100%;
+  position: relative;
+  }
+  
+.inner {
+  background-color: #b94242;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;  
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.inner:hover {
+  background-color: #888888;
+}
+.inputfile {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+}
+.inputfile + label {
+    font-size: 1.25rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+}
+.inputfile + label svg {
+    fill: #fff;
+}
+
+.miniature {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 20px !important; /* any size */
+  max-height: 20px !important; /* any size */
+  margin: auto;
+  background-position: center center;
+  background-clip: padding-box;
+  background-size: cover;
+  border-radius: 100%;
+  position: relative;
+  }
