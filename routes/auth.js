@@ -50,24 +50,22 @@ router.post('/signin', (req,res)=>{
     if(!email || !password){
         return res.status("422").json({error:"please provide email and password"})
     }
+     
     User.findOne({email:email})
     .then(savedUser=>{
         if(!savedUser){
            return res.status("422").json({error:"Invalid Email or password"})
         }
-        bctypt.compare(password,savedUser.password)
-        .then(doMatch=>{
+        bctypt.compare(password,savedUser.password, (err, doMatch)=>{
             if(doMatch){
                 //res.json({message:"successfully signed in"})
                 const token = jwt.sign({_id:savedUser._id},JWT_SECRET)
                 const {_id,name,email,followers,following, pic} =savedUser
                 res.json({token, user:{_id,name,email,followers,following, pic}})
             }else{
+                console.log(err)
                 return res.status("422").json({error:"Invalid Email or password"})
             }
-        })
-        .cath(err=>{
-            console.log(err)
         })
     })
     .catch(err=>{console.log(err)})
