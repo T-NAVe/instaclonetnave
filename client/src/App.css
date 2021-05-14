@@ -20,6 +20,10 @@ a{
   border-bottom: 1px solid #64b5f6 !important;
   box-shadow: 0 1px 0 0 #64b5f6 !important;
 }
+.modal-content input:focus{
+  border-bottom: 1px solid #64b5f6 !important;
+  box-shadow: 0 1px 0 0 #64b5f6 !important;
+}
 .gallery{
   display:flex;
   flex-wrap: wrap;
@@ -131,4 +135,8 @@ container {
   background-size: cover;
   border-radius: 100%;
   position: relative;
-  }
+}
+.collection-item{
+  color: black !important;
+  width: 100% !important;
+}

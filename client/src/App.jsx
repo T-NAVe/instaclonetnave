@@ -10,6 +10,9 @@ import CreatePost from './components/screens/CreatePost'
 import {initialState, reducer} from './reducers/userReducers'
 import UserProfile from './components/screens/UserProfile'
 import SubscribedUserPosts from './components/screens/SubscribedUserPosts'
+import Redirect from './components/screens/Redirect'
+import Reset from './components/screens/Reset'
+import NewPassword from './components/screens/NewPassword'
 
 export const UserContext = createContext()
  //wrap everything in a new component to be able to access use history
@@ -25,7 +28,9 @@ const Routing = ()=>{
     if(user){
       dispatch({type:"USER", payload:user})
     }else{
-      history.push('/signin')
+      if(!history.location.pathname.startsWith('/reset')){
+        history.push('/signin')
+      }      
     }
     // eslint-disable-next-line
   },[])
@@ -50,8 +55,20 @@ const Routing = ()=>{
       <Route exact path="/profile/:userid">
         <UserProfile></UserProfile>
       </Route>
+      <Route exact path="/confirm/:confirmationCode">
+        <Redirect></Redirect>
+      </Route>
       <Route exact path="/myfollowingpost">
         <SubscribedUserPosts></SubscribedUserPosts>
+      </Route>
+      <Route exact path="/reset/:token">
+        <NewPassword></NewPassword>
+      </Route>
+      <Route exact path="/reset">
+        <Reset></Reset>
+      </Route>
+      <Route path="*">
+        <Home/>
       </Route>
     </Switch>
   );

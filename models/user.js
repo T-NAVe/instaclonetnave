@@ -14,6 +14,17 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    status: {
+        type: String, 
+        enum: ['Pending', 'Active'],
+        default: 'Pending'
+      },
+    confirmationCode:{ 
+        type: String, 
+        unique: true 
+    },
+    resetToken:String,
+    expireToken:Date,
     pic:{
         type:String,
         default:"https://res.cloudinary.com/tnave/image/upload/v1620915518/no-image_cragat.jpg"

@@ -10,6 +10,7 @@ router.get('/allpost', requireLogin,(req,res)=>{
     //we can pass a second argument so select wich fields we want
     .populate("postedBy", "_id name pic")
     .populate({path:'comments.postedBy', select:'_id name', model: 'User' })
+    .sort('-createdAt')
     .then(posts=>{
         res.json({posts})
     })
@@ -23,6 +24,7 @@ router.get('/getsubpost', requireLogin,(req,res)=>{
     Post.find({postedBy:{$in:req.user.following}})
     .populate("postedBy", "_id name pic")
     .populate({path:'comments.postedBy', select:'_id name', model: 'User' })
+    .sort('-createdAt')
     .then(posts=>{
         res.json({posts})
     })
@@ -56,7 +58,8 @@ router.post('/createpost', requireLogin,(req,res)=>{
 router.get('/mypost', requireLogin,(req,res)=>{
     
     Post.find({postedBy:req.user._id})
-    .populate("postedBy", "_id name")    
+    .populate("postedBy", "_id name")
+    .sort('-createdAt')
     .then(mypost=>{
         res.json({mypost})
     })

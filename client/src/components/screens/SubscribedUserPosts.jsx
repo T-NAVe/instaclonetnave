@@ -159,8 +159,6 @@ const SubscribedUserPosts = () => {
                             <img src={item.photo} alt="" />                    
                         </div>
                         <div className="card-content">
-                            <i className="material-icons" style={{color:"orange"}}>star</i>
-                            <i className="material-icons" style={{color:"black"}}>star_border</i>
                             {
                                 item.likes.includes(state._id)
                                 ?

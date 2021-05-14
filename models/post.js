@@ -23,7 +23,7 @@ const postSchema = new mongoose.Schema({
         type:ObjectId,
         ref:"User"
     }
-})
+},{timestamps:true})
 //Object id makes a reference to User colection, searching for that id
 //This is how relations works in mongo
 

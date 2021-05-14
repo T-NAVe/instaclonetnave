@@ -1,26 +1,22 @@
-import React, {useState, useContext} from 'react'
-import {Link, useHistory} from 'react-router-dom'
-import {UserContext} from '../../App'
+import React, {useState} from 'react'
+import { useHistory} from 'react-router-dom'
 import M from "materialize-css"
 
-const Signin = () => {
+const Reset = () => {
     // eslint-disable-next-line
-    const {state, dispatch} = useContext(UserContext)
     const history = useHistory()
-    const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const postData = ()=>{
         // eslint-disable-next-line
         if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
             return M.toast({html: "Invalid Email", classes:"#d32f2f red darken-2"})
         }
-        fetch('/signin',{
+        fetch('/reset-password',{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                password,
                 email
             })
         })
@@ -30,11 +26,8 @@ const Signin = () => {
             if(data.error){
                 M.toast({html: data.error, classes:"#d32f2f red darken-2"})
             }else{
-                localStorage.setItem("jwt", data.token)
-                localStorage.setItem("user", JSON.stringify(data.user))
-                dispatch({type:"USER", payload:data.user})
-                M.toast({html:"signed in succesfully", classes:"#43a047 green darken-1"})
-                history.push("/")
+                M.toast({html:data.message, classes:"#43a047 green darken-1"})
+                history.push("/signin")
             }
         }).catch(err=>console.log(err))
     }
@@ -48,30 +41,17 @@ const Signin = () => {
                 placeholder="email"
                 value={email}
                 onChange={e=>setEmail(e.target.value)}
-                />
-                <input
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={e=>setPassword(e.target.value)}
-                />
-                
+                />                
                 <button 
                 className="btn waves-effect waves-light blue lighten-2" type="submit" 
                 name="action"
                 onClick={()=>postData()}
-                >Sign in
+                >Reset Password
                 </button>
-                <h5>
-                    <Link to="/signup">Don't have an account?</Link>
-                </h5>
-                <h6>
-                    <Link to="/reset">Forgot password?</Link>
-                </h6>
             </div>
         </div>
         
     )
 }
 
-export default Signin
+export default Reset
