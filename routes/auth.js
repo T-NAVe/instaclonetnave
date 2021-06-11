@@ -30,6 +30,7 @@ router.post('/signup',(req,res)=>{;
     if(name.length > 30){
         return res.status("422").json({error:"Name is too long"})
     }
+    //password validation
     const validate = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,15}$/
     if(!password.match(validate)){
         return res.status("422").json({error:"Password should be 8-15 characters long and contain at least 1 upper case and 1 lower case character and 1 digit"})

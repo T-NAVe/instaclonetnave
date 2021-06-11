@@ -30,7 +30,7 @@ const CreatePost = () => {
                     M.toast({html: data.error, classes:"#d32f2f red darken-2"})
                 }else{
                     M.toast({html:"post created successfully", classes:"#43a047 green darken-1"})
-                    history.push("/")
+                    history.push('/')
                 }
             }).catch(err=>console.log(err))
         }

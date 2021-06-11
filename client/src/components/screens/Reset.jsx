@@ -3,7 +3,7 @@ import { useHistory} from 'react-router-dom'
 import M from "materialize-css"
 
 const Reset = () => {
-    // eslint-disable-next-line
+
     const history = useHistory()
     const [email, setEmail] = useState('')
     const postData = ()=>{
