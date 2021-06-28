@@ -1,7 +1,7 @@
 ﻿# instaclone-Tnav-e
 ####    This is simply a "clone" of instagram that i made for educational purposes.
 
-**You can check the working app on:** [instaclone-Tnav-e](https://blacklotusencryptor.herokuapp.com/)
+**You can check the working app on:** [instaclone-Tnav-e](http://instaclonetnave.herokuapp.com/)
 ####    **The app:**
 
 *   Please be patient with the app, the free tier heroku service is not the fastest one on the internet.
