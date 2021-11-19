@@ -72,7 +72,7 @@ router.put('/like', requireLogin,(req,res)=>{
     Post.findByIdAndUpdate(req.body.postId,{
         $push:{likes:req.user._id}
     },{new:true})
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id name pic")
     .populate({path:'comments.postedBy', select:'_id name', model: 'User' })
     .exec((err,result)=>{
         if(err){
@@ -86,7 +86,7 @@ router.put('/unlike', requireLogin,(req,res)=>{
     Post.findByIdAndUpdate(req.body.postId,{
         $pull:{likes:req.user._id}
     },{new:true})
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id name pic")
     .populate({path:'comments.postedBy', select:'_id name', model: 'User' })
     .exec((err,result)=>{
         if(err){
